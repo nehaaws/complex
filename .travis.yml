@@ -12,4 +12,12 @@ after_success:
   - docker build -t neha/multi-nginx ./nginx
   - docker build -t neha/multi-server ./server
   - docker build -t neha/multi-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push neha/multi-client
+  - docker push neha/multi-nginx
+  - docker push neha/multi-server
+  - docker push neha/multi-worker
+
+
+
 
