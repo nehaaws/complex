@@ -1,0 +1,40 @@
+{
+    "AWSEBDockerrunVersion" : 2,
+    "containerDefinitions":[
+        {
+            "name": "client",
+            "image": "neha/multi-client",
+            "hostname": "client",
+            "essential" : false
+        },
+        {
+            "name": "server",
+            "image": "neha/multi-server",
+            "hostname": "api",
+            "essential" : false
+        },
+        {
+            "name": "worker",
+            "image": "neha/multi-worker",
+            "hostname": "worker",
+            "essential" : false
+        },
+        {
+            "name": "nginx",
+            "image": "neha/multi-nginx",
+            "essential" : true,
+            "portMappings":[
+                {
+                    "hostPorts": 80,
+                    "containerPorts":80
+                }
+            ],
+            "links":["server","client"]
+
+        }
+
+       
+
+    ]
+
+}
