@@ -19,11 +19,11 @@ after_success:
   - docker push neha/multi-worker
 deploy:
   provider: elasticbeanstalk
-  region: "ap-south-1"
-  app: "multi_docker"
-  env: "MultiDocker-env"
-  bucket_name: "elasticbeanstalk-ap-south-1-954516000444"
-  bucket_path: "multi_docker"
+  region: ap-south-1
+  app: multi_docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-ap-south-1-954516000444
+  bucket_path: docker-multi
   on:
     branch: master
   access_key_id : $AWS_ACCESS_KEY
